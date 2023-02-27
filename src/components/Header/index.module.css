@@ -1,0 +1,80 @@
+.header {
+  width: 100%;
+  height: 7rem;
+  background-color: var(--elements);
+  box-shadow: 0px 2px 6px 0px rgb(0, 0, 0, 0.15);
+}
+
+.navbar {
+  width: 90%;
+  max-width: 125rem;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.navbar h1 {
+  font-size: 1.4rem;
+}
+
+.themeButton {
+  width: 8rem;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: var(--text);
+  outline: none;
+  border: none;
+}
+.themeButton div {
+  display: flex;
+  align-items: center;
+}
+
+.themeButton svg {
+  fill: var(--text);
+  font-size: 1.3rem;
+  margin-inline-end: 0.6rem;
+}
+
+@media (min-width: 370px) {
+  .navbar h1 {
+    font-size: 1.6rem;
+  }
+
+  .themeButton {
+    width: 9rem;
+    font-size: 1.3rem;
+  }
+
+  .themeButton svg {
+    font-size: 1.3rem;
+    margin-inline-end: 0.6rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .header {
+    height: 8rem;
+  }
+
+  .navbar h1 {
+    font-size: 2rem;
+  }
+
+  .themeButton {
+    width: 10rem;
+    font-size: 1.5rem;
+  }
+
+  .themeButton svg {
+    font-size: 1.5rem;
+    margin-inline-end: 0.7rem;
+  }
+}
