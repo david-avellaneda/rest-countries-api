@@ -1,20 +1,15 @@
 :root {
   --elements: rgb(255, 255, 255);
-  --background: rgb(250, 250, 250);
+  --background: rgb(245, 245, 245);
   --text: rgb(17, 21, 23);
   --input: rgb(133, 133, 133);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --elements: rgb(43, 57, 69);
-    --background: rgb(32, 44, 55);
-    --text: rgb(255, 255, 255);
-    --input: rgb(133, 133, 133);
-  }
-  html {
-    color-scheme: dark;
-  }
+[data-theme="dark"] {
+  --elements: rgb(43, 57, 69);
+  --background: rgb(32, 44, 55);
+  --text: rgb(255, 255, 255);
+  --input: rgb(133, 133, 133);
 }
 
 * {
@@ -47,6 +42,8 @@ h2,
 a,
 p,
 span,
-button {
+button,
+input,
+input::placeholder {
   font-family: var(--font-nunito-sans);
 }
