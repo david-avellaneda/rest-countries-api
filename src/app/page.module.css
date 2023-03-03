@@ -1,0 +1,10 @@
+.main {
+  width: 90%;
+  max-width: 160rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
