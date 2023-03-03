@@ -1,0 +1,46 @@
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2.5rem 0 3rem 0;
+}
+
+.countries {
+  width: 90%;
+  display: grid;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 370px) {
+  .countries {
+    width: 80%;
+    gap: 4.5rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .search {
+    flex-direction: row;
+    margin: 4.5rem 0 2.5rem 0;
+  }
+
+  .countries {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .countries {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .countries {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
