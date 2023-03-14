@@ -32,18 +32,40 @@ body {
   background: var(--background);
 }
 
+main {
+  width: 90%;
+  max-width: 160rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+main.country-info {
+  width: 85%;
+}
+
 a {
-  color: inherit;
   text-decoration: none;
+}
+
+svg {
+  color: var(--text);
 }
 
 h1,
 h2,
+h3,
 a,
 p,
 span,
 button,
+select,
+option,
 input,
 input::placeholder {
+  color: var(--text);
   font-family: var(--font-nunito-sans);
 }
