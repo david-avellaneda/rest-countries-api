@@ -1,37 +1,26 @@
 import InteractiveCountries from "@/components/InteractiveCountries";
-import styles from "./page.module.css";
+import helpApi from "@/helpers/helpApi";
 
-async function getData() {
-  // ISR
-  try {
-    const res = await fetch("https://restcountries.com/v3.1/all", {
-      next: {
-        // Cada 2 días se haga una nueva petición, es decir cada 172.800 segundos
-        revalidate: 172800,
-      },
-    });
-
-    if (!res.ok)
-      throw {
-        status: res.status || 500,
-        msg: res.statusText || "Internal several error",
-      };
-
-    const data = await res.json();
-
-    return data;
-  } catch (err) {
-    return err;
-  }
+async function getCountries() {
+  const url = "all?fields=capital,flags,name,population,region";
+  const data = await helpApi(url);
+  return data;
 }
 
 const PostsPage = async () => {
-  const countries = await getData();
+  const countries = await getCountries();
 
   return (
-    <main className={styles.main}>
-      <InteractiveCountries countries={countries} />
-    </main>
+    <>
+      <title>REST countries API with NextJS 13 - David Avellaneda </title>
+      <meta
+        name="description"
+        content="REST Countries API with color theme switcher"
+      />
+      <main>
+        <InteractiveCountries countries={countries} />
+      </main>
+    </>
   );
 };
 
