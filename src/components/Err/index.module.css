@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+  max-width: 30rem;
+  height: 15rem;
+  background-color: #dc3545;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-block-end: 5rem;
+  transform: translateY(50%);
+}
+
+.container p {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #fff;
+}
+
+.container p:nth-child(1) {
+  margin-block-end: 2rem;
+}
