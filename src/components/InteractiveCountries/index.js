@@ -5,6 +5,7 @@ import { useState } from "react";
 import Countries from "../Countries";
 import Filter from "../Filter";
 import Search from "../Search";
+import helpApi from "@/helpers/helpApi";
 
 const InteractiveCountries = ({ countries }) => {
   const [countriesData, setCountriesData] = useState(countries);
@@ -20,11 +21,27 @@ const InteractiveCountries = ({ countries }) => {
     );
   };
 
+  const filterByRegion = async (region) => {
+    const url = `region/${region}?fields=capital,flags,name,population,region`;
+    try {
+      const data = await helpApi(url);
+      setCountriesData(data);
+    } catch (err) {
+      return;
+    }
+  };
+
+  const handleFilterByRegion = (e) => {
+    e.target.value === "all"
+      ? setCountriesData(countries)
+      : filterByRegion(e.target.value);
+  };
+
   return (
     <>
       <section className={styles.search}>
         <Search searchCountry={searchCountry} country={country} />
-        <Filter />
+        <Filter handleFilterByRegion={handleFilterByRegion} />
       </section>
       <section className={styles.countries}>
         <Countries countries={countriesData} />
