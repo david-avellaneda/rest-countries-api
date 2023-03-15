@@ -7,7 +7,7 @@ import helpNameUrl from "@/helpers/helpNameUrl";
 const Card = ({ i, name, flags, population, region, capital }) => {
   return (
     <article className={styles.card}>
-      <Link href={helpNameUrl(`/${name.common}`)}>
+      <Link href={helpNameUrl(`/${name.official}`)}>
         <Image
           src={flags.svg || flags.png}
           alt={flags.alt || name.common}
