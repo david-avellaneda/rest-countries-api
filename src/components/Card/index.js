@@ -1,19 +1,15 @@
 import styles from "./index.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
-function thousandsSeparator(n) {
-  let parter = n.toString().split(".");
-  parter[0] = parter[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return parter.join(".");
-}
+import helpThousandsSeparator from "@/helpers/helpThousandsSeparator";
+import helpNameUrl from "@/helpers/helpNameUrl";
 
 const Card = ({ i, name, flags, population, region, capital }) => {
   return (
     <article className={styles.card}>
-      <Link href={`/${name.common}`}>
+      <Link href={helpNameUrl(`/${name.common}`)}>
         <Image
-          src={flags.svg}
+          src={flags.svg || flags.png}
           alt={flags.alt || name.common}
           priority={i < 10}
           width={300}
@@ -23,13 +19,18 @@ const Card = ({ i, name, flags, population, region, capital }) => {
           <h2>{name.common}</h2>
           <div className={styles.cardContentText}>
             <p>
-              Population: <span>{thousandsSeparator(population)}</span>
+              Population:{" "}
+              <span>
+                {population
+                  ? helpThousandsSeparator(population)
+                  : "Not established"}
+              </span>
             </p>
             <p>
-              Region: <span>{region}</span>
+              Region: <span>{region || "Not established"}</span>
             </p>
             <p>
-              Capital: <span>{capital}</span>
+              Capital: <span>{capital[0] || "Not established"}</span>
             </p>
           </div>
         </div>
