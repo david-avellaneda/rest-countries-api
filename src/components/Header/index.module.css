@@ -28,10 +28,10 @@
   font-size: 1.1rem;
   font-weight: 600;
   background-color: transparent;
-  color: var(--text);
   outline: none;
   border: none;
 }
+
 .themeButton div {
   display: flex;
   align-items: center;
