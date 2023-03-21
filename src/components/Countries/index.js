@@ -6,10 +6,10 @@ const Countries = ({ countries }) => {
     <>
       {countries.length &&
         countries.map((country, index) => (
-          <Card key={index} {...country} i={index} />
+          <Card key={index} {...country} index={index} />
         ))}
 
-      {countries.err == "region" && (
+      {countries.err === "region" && (
         <>
           <Err
             msg={
