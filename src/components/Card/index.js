@@ -1,28 +1,29 @@
 import styles from "./index.module.css";
-import Image from "next/image";
 import Link from "next/link";
 import helpThousandsSeparator from "@/helpers/helpThousandsSeparator";
 import helpNameUrl from "@/helpers/helpNameUrl";
+import ImageUploader from "../ImageUploader";
 
-const Card = ({ i, name, flags, population, region, capital }) => {
+const Card = ({ index, name, flags, population, region, capital }) => {
   return (
     <article className={styles.card}>
       <Link href={helpNameUrl(`/${name.official}`)}>
-        <Image
-          src={flags.svg || flags.png}
-          alt={flags.alt || name.common}
-          priority={i < 10}
+        <ImageUploader
           width={300}
           height={150}
+          flags={flags}
+          name={name}
+          index={index}
+          styleLoader="card"
         />
         <div className={styles.cardContent}>
           <h2>{name.common}</h2>
           <div className={styles.cardContentText}>
             <p>
-              Population:{" "}
+              Population:
               <span>
                 {population
-                  ? helpThousandsSeparator(population)
+                  ? ` ${helpThousandsSeparator(population)}`
                   : "Not established"}
               </span>
             </p>
